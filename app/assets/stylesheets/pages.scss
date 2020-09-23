@@ -1,0 +1,25 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.sidebar {
+  width: 25%;
+  height: 100%;
+  background-color: #eee;
+}
+
+#main-image {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  display: flex;
+}
+
+.box {
+  position: absolute;
+  border: 5px solid white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  z-index: 1;
+}
