@@ -23,12 +23,17 @@
 
   li {
     display: flex;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     align-items: center;
 
     p {
       margin: 5px 5px 5px 15px;
     }
+  }
+
+  .found {
+    opacity: .5;
+    text-decoration: line-through;
   }
 
   .figure-wrapper {
