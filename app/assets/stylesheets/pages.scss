@@ -3,23 +3,27 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .sidebar {
+  color: #fff;
   width: 25%;
   max-width: 300px;
   padding: 16px;
   height: 100%;
-  background-color: #eee;
+  background-color: #181818;
+  border-right: 10px solid #eee;
 
   h2 {
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 2.25rem;
     display: block;
+    padding-bottom: 1rem;
     margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
     text-align: center;
   }
 
   li {
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
     align-items: center;
 
     p {
@@ -27,35 +31,52 @@
     }
   }
 
+  .figure-wrapper {
+    padding: 5px;
+    border-radius: 50%;
+    border: 2px solid #eee;
+  }
+
   figure {
-    width: 125px;
-    height: 125px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     overflow: hidden;
+    background-color: #fff;
+
+    img {
+      height: 70px;
+    }
   }
 }
 
 .waldo {
   img {
-    transform: translate(-10px, -1px);
+    transform: translateX(2px);
   }
 }
 
 .wenda {
   img {
-    transform: translate(-160px, -1px);
+    transform: translate(-78px,-6px);
   }
 }
 
 .wizard {
   img {
-    transform: translate(-465px, -1px);
+    transform: translate(-142px,-8px);
   }
 }
 
 .oddlaw {
   img {
-    transform: translate(-620px,-1px);
+    transform: translateX(-209px);
+  }
+}
+
+.woof {
+  img {
+    transform: translate(-10px, -5px);
   }
 }
 
