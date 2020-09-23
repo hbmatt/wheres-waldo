@@ -29,7 +29,7 @@ Character.create([
   },
   {
     name: 'Woof',
-    x: 1229,
+    x: 1299,
     y: 667
   }
 ])
