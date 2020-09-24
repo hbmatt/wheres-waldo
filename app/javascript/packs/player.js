@@ -53,7 +53,9 @@ const Player = (() => {
     scores.appendChild(title);
     const list = document.createElement("ol");
     scores.appendChild(list);
+
     document.body.appendChild(overlay);
+    allowClose(overlay, scores);
   }
 
   function createEntry(player) {
@@ -69,6 +71,23 @@ const Player = (() => {
     list.appendChild(item);
   }
 
+  function allowClose(overlay, scores) {
+    overlay.addEventListener('click', () => {
+      overlay.remove();
+    })
+    scores.addEventListener('click', (e) => {
+      e.stopPropagation();
+      return false; 
+    })
+  }
+
+  function addTrophyClick() {
+    const trophyBtn = document.querySelector('#trophy');
+    trophyBtn.addEventListener('click', () => {
+      displayTop();
+    })
+  }
+
   function convertMS(milliseconds) {
     let seconds = Math.floor(milliseconds / 1000);
     let minutes = Math.floor(seconds / 60);
@@ -79,7 +98,7 @@ const Player = (() => {
     return minutes + seconds;
   }
 
-  return { addPlayer };
+  return { addPlayer, addTrophyClick };
 })();
 
 export { Player };
