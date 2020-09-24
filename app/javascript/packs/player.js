@@ -3,7 +3,7 @@ const Player = (() => {
 
   function addPlayer(end) {
     const time = end - start;
-    const name = prompt("Enter your name","Anonymous");
+    const name = prompt("Enter your name", "Anonymous");
 
     if (name === null) {
       return;
@@ -18,7 +18,11 @@ const Player = (() => {
       body: JSON.stringify({ name, time }),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => {
+        let calcTime = convertMS(res.time_taken);
+        alert(`You have been saved as ${name} with a time of ${calcTime}.`);
+        displayTop();
+      })
       .catch(() => console.error("Error."));
   }
 
@@ -31,40 +35,51 @@ const Player = (() => {
       },
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => {
+        createOverlay();
+        res.forEach((player) => createEntry(player));
+      })
       .catch(() => console.error("Error."));
   }
 
   function createOverlay() {
-    const background = document.createElement("div");
-    background.classList.add("overlay");
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
     const scores = document.createElement("div");
     scores.classList.add("scores");
-    background.appendChild(scores);
-    document.appendChild(background);
+    overlay.appendChild(scores);
+    const title = document.createElement("h2");
+    title.textContent = "Top Scores";
+    scores.appendChild(title);
+    const list = document.createElement("ol");
+    scores.appendChild(list);
+    document.body.appendChild(overlay);
+  }
+
+  function createEntry(player) {
+    const item = document.createElement("li");
+    const name = document.createElement("strong");
+    name.textContent = player.name;
+    let time = convertMS(player.time_taken);
+    time = document.createTextNode(time);
+    item.appendChild(name);
+    item.appendChild(time);
+
+    const list = document.querySelector("ol");
+    list.appendChild(item);
   }
 
   function convertMS(milliseconds) {
     let seconds = Math.floor(milliseconds / 1000);
-    let minute = Math.floor(seconds / 60);
+    let minutes = Math.floor(seconds / 60);
     seconds = seconds % 60;
-    minute = minute % 60;
-    return `${minute}m, ${seconds}s`;
+    minutes = minutes % 60;
+    seconds = `${seconds}s`;
+    minutes = minutes > 1 ? `${minutes}m, ` : "";
+    return minutes + seconds;
   }
 
   return { addPlayer };
 })();
 
 export { Player };
-
-
-// res.forEach((player) => {
-//   const p = document.createElement("p");
-//   const name = document.createElement("strong");
-//   name.textContent = player.name;
-//   p.appendChild(name);
-//   const time = document.createTextNode(convertMS(player.time));
-//   p.appendChild(time);
-
-//   document.querySelector(".scores").appendChild(p);
-// });

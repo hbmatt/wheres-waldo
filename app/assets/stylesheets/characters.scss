@@ -1,3 +1,33 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.waldo {
+  img {
+    transform: translateX(2px);
+  }
+}
+
+.wenda {
+  img {
+    transform: translate(-78px, -6px);
+  }
+}
+
+.wizard {
+  img {
+    transform: translate(-142px, -8px);
+  }
+}
+
+.oddlaw {
+  img {
+    transform: translateX(-209px);
+  }
+}
+
+.woof {
+  img {
+    transform: translate(-10px, -5px);
+  }
+}

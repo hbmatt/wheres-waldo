@@ -55,36 +55,6 @@
   }
 }
 
-.waldo {
-  img {
-    transform: translateX(2px);
-  }
-}
-
-.wenda {
-  img {
-    transform: translate(-78px, -6px);
-  }
-}
-
-.wizard {
-  img {
-    transform: translate(-142px, -8px);
-  }
-}
-
-.oddlaw {
-  img {
-    transform: translateX(-209px);
-  }
-}
-
-.woof {
-  img {
-    transform: translate(-10px, -5px);
-  }
-}
-
 .image-container {
   height: 100%;
   overflow: auto;
@@ -112,30 +82,4 @@
   height: 90px;
   border-radius: 50%;
   z-index: 1;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.scores {
-  width: 40%;
-  max-width: 400px;
-  padding: 16px;
-  border-radius: 10px;
-  background-color: #eee;
-  color: #181818;
-
-  strong {
-    font-weight: 700;
-    color: orange;
-  }
 }

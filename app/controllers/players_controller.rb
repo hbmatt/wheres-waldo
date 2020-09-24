@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.order(:time_taken).limit(5)
+    @players = Player.order(:time_taken).limit(3)
 
     respond_to do |format|
       format.json { render :json => @players }

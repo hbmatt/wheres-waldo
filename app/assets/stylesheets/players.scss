@@ -1,3 +1,78 @@
 // Place all the styles related to the Players controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+
+  .scores {
+    width: 40%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #eee;
+    color: #181818;
+    font-size: 1.5rem;
+    line-height: 45px;
+
+    h2 {
+      font-weight: bold;
+      display: block;
+      padding-bottom: 1.25rem;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 1.25rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+strong {
+  font-weight: bold!important;
+  color: orange;
+}
+
+strong::after {
+  content: ':';
+  margin-right: .5rem;
+}
+
+ol {
+  counter-reset: player-counter;
+  padding-left: 60px!important;
+}
+
+ol li {
+  margin: 0 0 0.75rem 0;
+  padding-left: 5px;
+  counter-increment: player-counter;
+  position: relative;
+}
+
+$size: 45px;
+
+ol li::before {
+  content: counter(player-counter);
+  color: orange;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  left: -1 * $size - 10px;
+  line-height: $size;
+  width: $size;
+  height: $size;
+  top: 0;
+  background-color: #181818;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 1px 0 orange;
+}
